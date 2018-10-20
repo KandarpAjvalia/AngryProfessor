@@ -1,8 +1,8 @@
 def pressed():
+    global press
     numL, numK, numA = map(int, input().split())
     frequency = list(map(int, input().strip().split()))
     frequency = sorted(frequency, reverse = True)
-    press = 0
     count = 0
     freqCount = 0
     for i in range(0, numA, numK):
@@ -14,9 +14,12 @@ def pressed():
             freqCount += frequency[j] 
         press += (count * freqCount) 
         freqCount = 0
-    print(press)
 
 
 numTimes = int(input())
+press = 0
 for num in range(numTimes):
+    press = 0
     pressed()
+    print("Case #",num+1,":", sep='', end='')
+    print("",press)
